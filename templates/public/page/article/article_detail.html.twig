@@ -1,0 +1,23 @@
+{% extends 'public/base.html.twig' %}
+
+{% block body %}
+
+    <h1>article detail : {{ article.title }}</h1>
+
+    <img class="article__detail__img" src={{ article.image }} alt={{ article.title }}>
+
+    <p>{{ article.description }}</p>
+
+{#    <p>{{ article.created_at.date }}</p>#}
+    {#이거는 왜 안되는지 아직 모르겠네 format를 바꿔야 할듯?#}
+{#    <p>Cree le : {{ article.created_at | date('d-m-Y') }}</p>#}
+{#  created_at이 안되네 createdAt으로 해야하네 ㅡㅡ 아니 왜??? 내 db랑 엔티티에 전부 created_at으로 되어 있는데  #}
+
+    <p>Cree le : {{ article.createdAt | date('d-m-Y') }}</p>
+{#    왜냐면 엔티티에서 불러오는 방법이 이거이기때문임. private라 이 객체 이름으로 불러오는게 아니라 #}
+{#    public function getCreatedAt(): ?\DateTimeImmutable#}
+{#    {#}
+{#    return $this->created_at;#}
+{#    }  이런 get메소드 통해서 불러오기때문. 그래서 get메소드에서 get을 제외한 저부분이 해당부분을 불러오는 역할을 하는 거임#}
+
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'admin/base.html.twig' %}
+
+
+{% block body %}
+
+    <p>admin articles</p>
+
+    <div class="main__articles_list">
+
+    {% for article in articles %}
+        <div class="article-card">
+            <p>{{ article.title }}</p>
+            <p>{{ article.description }}</p>
+            <img src={{ article.image }} alt={{ article.title }}>
+            <a href={{ path('admin_article_update', {articleId : article.id}) }}>update</a>
+            <a href={{ path('admin_articles_delete' ,  { articleId : article.id }) }}>delete</a>
+        </div>
+
+
+    {% endfor %}
+
+{% endblock %}

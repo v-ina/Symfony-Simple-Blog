@@ -1,0 +1,17 @@
+{% extends 'public/base.html.twig' %}
+
+{% block body %}
+
+    <h1>every categories</h1>
+
+    <div class="main__articles_list">
+        {% for category in categories %}
+            <div class="article-card">
+                <h2>{{ category.title }}</h2>
+{#                <p>{{ article.description }}</p>#}
+                <a href={{ path('category_detail', {categoryId: category.id}) }} >savoir +</a>
+            </div>
+        {% endfor %}
+    </div>
+
+{% endblock %}
